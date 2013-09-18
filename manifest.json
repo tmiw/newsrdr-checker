@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "newsrdr.us checker",
+  "description": "Queries newsrdr.us and displays the number of unread posts in the toolbar.",
+  "version": "1.0",
+
+  "background": {
+    "persistent": false,
+    "page": "newsrdr-checker.safariextension/background.html"
+  },
+
+  "permissions": [
+    "alarms",
+    "tabs",
+    "webNavigation",
+    "*://*.newsrdr.us/"
+  ],
+  "browser_action": {
+    "default_icon": "newsrdr-checker.safariextension/icon.png"
+  },
+  "icons": {
+    "128": "newsrdr-checker.safariextension/icon_128.png"
+  },
+  "homepage_url": "http://newsrdr.us/"
+}
+
