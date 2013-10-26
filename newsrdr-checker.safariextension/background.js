@@ -86,15 +86,35 @@ SafariBrowserActions.prototype.setButtonClickHandler = function(fn)
     safari.application.addEventListener("command", fn);
 }
 
-function goToSite()
+function findUid()
 {
-    var tabUrl = "http://newsrdr.us/news"
+    // Safari only function; grabs UID for cookieless workaround method.
+    var tabUrl = "/news/";
+    var uid = 0;
     _browserInterface.allTabsInWindow(function(tabs) 
     {
         for (var i = 0, tab; tab = tabs[i]; i++) 
         {
             if (tab.url && tab.url.indexOf(tabUrl) >= 0) 
             {
+                uid = parseInt(tab.url.substr(tab.url.indexOf(tabUrl) + tabUrl.length))
+            }
+        }
+    });
+    
+    return uid;
+}
+
+function goToSite()
+{
+    var tabUrl = "http://newsrdr.us/news";
+    _browserInterface.allTabsInWindow(function(tabs) 
+    {
+        for (var i = 0, tab; tab = tabs[i]; i++) 
+        {
+            if (tab.url && tab.url.indexOf(tabUrl) >= 0) 
+            {
+                // Update known UID as needed.
                 _browserInterface.activateTab(tab);
                 _browserInterface.reloadTab();
                 return;
@@ -151,6 +171,14 @@ function onAlarm()
     };
 
     xhr.open("GET", "http://newsrdr.us/feeds/", true);
+    xhr.withCredentials = true;
+    if (typeof chrome === "undefined")
+    {
+        // Safari only: since XMLHttpRequest doesn't send cookies, this nasty workaround
+        // ensures that the plugin behaves as expected. Requires the user to click the button
+        // to retrieve the user ID, though.
+        xhr.setRequestHeader("X-newsrdr-userId", _browserInterface.uid);
+    }
     xhr.send();
 }
 
@@ -167,7 +195,32 @@ else
 {
     _browserInterface = new SafariBrowserActions;
     _safariAlarm = setInterval(onAlarm, 1000*60);
-    onAlarm(); // trigger it immediately
+    
+    // Every second, we should be checking to see what the current newsrdr UID is.
+    // Would be unnecessary if cookies actually worked in XMLHttpRequests.
+    _safariUrlAlarm = setInterval(function() {
+        var foundUid = findUid();
+        if (foundUid > 0)
+        {
+            _browserInterface.uid = foundUid;
+            // Attempt save to local storage. Will fail silently if Private Browsing is enabled.
+            try {
+                localStorage.lastSeenUid = _browserInterface.uid;
+            } catch(err) {
+                // ignore
+            }
+        }
+    }, 1000);
+    
+    // Restore last seen UID from storage.
+    try {
+        _browserInterface.uid = parseInt(localStorage.lastSeenUid);
+    } catch(err) {
+        // ignore
+    }
+    
+    // Trigger initial alarm immediately.
+    onAlarm();
 }
 
 _browserInterface.setButtonClickHandler(goToSite);
