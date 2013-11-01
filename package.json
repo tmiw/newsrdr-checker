@@ -1,0 +1,10 @@
+{
+  "name": "newsrdr-checker",
+  "fullName": "newsrdr.us checker",
+  "id": "jid1-4eYw4MaJjBbK3Q",
+  "description": "Queries newsrdr.us and displays the number of unread posts in the toolbar.",
+  "author": "Mooneer Salem",
+  "license": "BSD",
+  "version": "1.0",
+  "dependencies": ["browser-action"]
+}

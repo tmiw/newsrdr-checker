@@ -28,7 +28,7 @@
 				<key>Identifier</key>
 				<string>newsrdr-checker</string>
 				<key>Image</key>
-				<string>icon.png</string>
+				<string>images/icon.png</string>
 				<key>Label</key>
 				<string>Check News Feeds</string>
 			</dict>
