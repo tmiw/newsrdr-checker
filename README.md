@@ -7,7 +7,8 @@ Browser extension for http://newsrdr.us/. Works on both Chrome, Firefox and Safa
 
 ## Retrieving source code
 
-```git clone https://github.com/tmiw/newsrdr-checker.git newsrdr-checker.safariextension
+```
+git clone https://github.com/tmiw/newsrdr-checker.git newsrdr-checker.safariextension
 ```
 
 ## Installing extension
