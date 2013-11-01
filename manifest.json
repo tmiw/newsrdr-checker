@@ -7,7 +7,7 @@
 
   "background": {
     "persistent": false,
-    "page": "newsrdr-checker.safariextension/background.html"
+    "page": "background.html"
   },
 
   "permissions": [
@@ -17,10 +17,10 @@
     "*://*.newsrdr.us/"
   ],
   "browser_action": {
-    "default_icon": "newsrdr-checker.safariextension/icon.png"
+    "default_icon": "icon.png"
   },
   "icons": {
-    "128": "newsrdr-checker.safariextension/icon_128.png"
+    "128": "icon_128.png"
   },
   "homepage_url": "http://newsrdr.us/"
 }
