@@ -1,6 +1,0 @@
-[submodule "packages/browser-action-jplib"]
-	path = packages/browser-action-jplib
-	url = https://github.com/Rob--W/browser-action-jplib.git
-[submodule "packages/toolbarwidget-jplib"]
-	path = packages/toolbarwidget-jplib
-	url = https://github.com/Rob--W/toolbarwidget-jplib.git
