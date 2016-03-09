@@ -1,0 +1,6 @@
+manifest.json
+.git
+.DS_Store
+.gitignore
+.jpmignore
+.gitmodules

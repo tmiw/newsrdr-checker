@@ -5,6 +5,9 @@
   "description": "Queries newsrdr.us and displays the number of unread posts in the toolbar.",
   "author": "Mooneer Salem",
   "license": "BSD",
-  "version": "1.3.3",
-  "main": "lib/main.js"
+  "version": "1.3.4",
+  "main": "lib/main.js",
+  "engines": {
+    "firefox": ">=38.0a1"
+  }
 }
