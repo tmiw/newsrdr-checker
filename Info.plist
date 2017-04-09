@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Mooneer Salem</string>
 	<key>Builder Version</key>
-	<string>9537.73.11</string>
+	<string>12603.1.30.0.34</string>
 	<key>CFBundleDisplayName</key>
 	<string>newsrdr-checker</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.4</string>
+	<string>1.3.5</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
@@ -41,6 +41,8 @@
 	</dict>
 	<key>Description</key>
 	<string>Queries newsrdr.us and displays the number of unread posts in the toolbar.</string>
+	<key>DeveloperIdentifier</key>
+	<string>37NN66G654</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
